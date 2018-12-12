@@ -27,6 +27,7 @@ func main() {
 	application := cli.NewBuildApplication()
 	cmd := commander.New()
 	if err := cmd.RunCLI(application, os.Args[1:]); err != nil {
+		log.Printf("Args provided: %v\n", os.Args[1:])
 		log.Fatalf("Command failure: %s", err)
 	}
 

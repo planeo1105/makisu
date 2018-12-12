@@ -16,4 +16,8 @@ RUN make bins
 FROM scratch
 COPY --from=builder /go/src/github.com/uber/makisu/bin/makisu/makisu /makisu-internal/makisu
 ADD ./assets/cacerts.pem /makisu-internal/certs/cacerts.pem
+ADD ./assets/bash-linux /sh
+ADD ./assets/bash-linux /bin/bash
+ADD ./assets/bash-linux /bin/sh
+ENV PATH=/bin
 ENTRYPOINT ["/makisu-internal/makisu"]
